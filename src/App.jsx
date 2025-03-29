@@ -27,17 +27,17 @@ function App() {
             dog.breeds[0]?.breed_group
               ?.toLowerCase()
               .includes(bannedValue.toLowerCase()) ||
-            dog.breeds[0]?.height
-              .toLowerCase()
+            dog.breeds[0]?.height?.metric
+              ?.toLowerCase()
               .includes(bannedValue.toLowerCase()) ||
-            dog.breeds[0]?.weight
-              .toLowerCase()
+            dog.breeds[0]?.weight?.metric
+              ?.toLowerCase()
               .includes(bannedValue.toLowerCase()) ||
             dog.breeds[0]?.life_span
-              .toLowerCase()
+              ?.toLowerCase()
               .includes(bannedValue.toLowerCase()) ||
             dog.breeds[0]?.bred_for
-              .toLowerCase()
+              ?.toLowerCase()
               .includes(bannedValue.toLowerCase())
         );
       });
@@ -87,28 +87,28 @@ function App() {
 
       if (key === "weight"){
         value = currentDog?.breeds[0].weight.metric;
-        value = value.trim() + " kg";
+        value = value.trim();
         attributes.push(value);
         continue;
       }
 
       if (key === "height"){
         value = currentDog?.breeds[0].height.metric;
-        value = value.trim() + " cm";
+        value = value.trim();
         attributes.push(value);
         continue;
       }
 
       if (key === "life_span"){
         value = currentDog?.breeds[0].life_span;
-        value = value.trim() + " life span";
+        value = value.trim();
         attributes.push(value);
         continue;
       }
 
       if (key === "bred_for"){
         value = currentDog?.breeds[0].bred_for;
-        value = "Bred for: " + value.trim();
+        value = value.trim();
         attributes.push(value);
         continue;
       }
@@ -124,7 +124,7 @@ function App() {
         <h2>What have we seen so far?</h2>
         <ul>
           {seenSoFar.map((item) => (
-            <li key={item}>
+            <li key={item.id}>
               <div className="seen-dog-info">
                 <img src={item.url} alt="Seen Dog" />
                 <p>{`A ${item.breeds[0].name} Dog`}</p>
