@@ -1,0 +1,250 @@
+/* Add these styles at the top of the file */
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* align-items: stretch; */
+  /* padding-top: 0; */
+}
+
+.app {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2rem;
+  background-color: #c46a0f;  /* Light grey background */
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.ban-list {
+  flex: 1;
+  min-width: 250px;
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background-color: #e9ecef;  /* Medium grey background */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #dee2e6;  /* Subtle border */
+  /* Add these properties to handle overflow */
+  max-height: 80vh;  /* Limit height to 80% of viewport height */
+  overflow-y: auto;  /* Add scrollbar when content overflows */
+}
+
+.current-dog {
+  flex: 2;
+  min-width: 500px;
+  padding: 1.5rem;
+  background-color: #343a40;  /* Dark grey background */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #495057;  /* Subtle border */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.current-dog img {
+  max-width: 100%;
+  width: 80%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1rem 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+}
+
+.current-dog h1,
+.current-dog h2,
+.current-dog p {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.current-dog button {
+  margin: 1rem auto;
+}
+
+h1 {
+  color: #f8f9fa;  /* Light grey for main heading in dark section */
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+}
+
+h2 {
+  color: #343a40;  /* Dark grey for subheadings in light sections */
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.current-dog h2 {
+  color: #f8f9fa;  /* Light grey for subheadings in dark section */
+}
+
+p {
+  color: #495057;  /* Medium grey for paragraph text */
+  margin-bottom: 1.5rem;
+}
+
+.current-dog p {
+  color: #e9ecef;  /* Light grey for paragraph text in dark section */
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.ban-list li {
+  background-color: #900909;  /* Soft red */
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ban-list li:hover {
+  background-color: #ff5252;  /* Slightly darker red on hover */
+  transform: translateY(-1px);
+}
+
+
+/* Move the general button styles higher up in the file, before the attribute-container styles */
+button {
+  background-color: #4dabf7;  /* Soft blue */
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 1rem;
+}
+
+button:hover {
+  background-color: #339af0;  /* Slightly darker blue on hover */
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(77, 171, 247, 0.2);
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .app {
+    flex-direction: column;
+  }
+  
+  .seen-list, .current-dog, .ban-list {
+    width: 100%;
+  }
+}
+
+.current-dog-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.attribute-container {
+  display: flex;
+  flex-wrap: wrap;  /* This makes buttons wrap to next row */
+  justify-content: center;
+  gap: 0.5rem;  /* Space between buttons */
+  margin: 1rem 0;
+  width: 100%;
+}
+
+/* Make the attribute button selector more specific */
+.current-dog .attribute-container button {
+  flex: 0 1 auto;  /* Don't grow, can shrink, auto base size */
+  min-width: fit-content;
+  margin: 0;  /* Override default button margin */
+  background-color: #6b3e02;  /* Darker color for attribute buttons */
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+}
+
+/* .current-dog .attribute-container button:hover {
+  background-color: #6c757d;
+  transform: translateY(-1px);
+} */
+
+.seen-list {
+  flex: 1;
+  min-width: 250px;
+  margin-top: 1.5rem; 
+  padding: 1.5rem;
+  background-color: #e9ecef;  /* Medium grey background */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #dee2e6;  /* Subtle border */
+  /* Add these properties to handle overflow */
+  max-height: 80vh;  /* Limit height to 80% of viewport height */
+  overflow-y: auto;  /* Add scrollbar when content overflows */
+}
+
+.seen-list li {
+  /* background-color: #4dabf7;  Soft blue */
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  margin-bottom: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+/* .seen-list li:hover {
+  background-color: #339af0; 
+  transform: translateY(-1px);
+} */
+
+
+.seen-dog-info {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  /* background-color: #120303; */
+  border-radius: 8px;
+}
+
+.seen-dog-info img {
+  object-fit: cover;  
+  flex-shrink: 0; 
+  width: 50%;
+  height: 50%;/* Prevent image from shrinking */
+}
+
+.seen-dog-info h2 {
+  color: #343a40;  /* Dark grey for subheadings in light sections */
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.seen-dog-info .dog-details {
+  flex: 1;
+  overflow: hidden;  /* Prevent text from overflowing */
+}
