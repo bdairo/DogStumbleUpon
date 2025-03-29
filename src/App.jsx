@@ -73,6 +73,10 @@ function App() {
     });
   };
 
+  const removeFromBanList = (value) => {
+    setBanList((prevList) => prevList.filter((item) => item !== value));
+  };
+
   const getAttributes = () => {
     const attributes = [];
     for (let [key, value] of Object.entries(currentDog?.breeds[0])) {
@@ -157,7 +161,7 @@ function App() {
         <h2>Ban List</h2>
         <ul>
           {banList.map((item) => (
-            <li key={item}>{item}</li>
+            <li onClick={() => removeFromBanList(item)} key={item}>{item}</li>
           ))}
         </ul>
       </div>
